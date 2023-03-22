@@ -5,7 +5,59 @@
         <title> Documentation</title>
     </head>
     <body>
-        <h1>Initial Setup</h1>
-        <p>Initial Setup Initial SetupInitial SetupInitial SetupInitial SetupInitial SetupInitial SetupInitial SetupInitial SetupInitial Setup</p>
+        <h1>Hydra Installation On-Premise/Local</h1>
+        <h2>Prequisites</h2>
+        <ol>
+            <li>Docker installation - <a href="https://docs.docker.com/get-docker/"> Docker</a></li>
+            <li>Docker Compose installation - <a href="https://docs.docker.com/compose/install/"> Docker compose installation guide</a></li>
+            <li>Git - <a href="https://github.com/git-guides/install-git"> Git</a></li>
+        </ol>
+        <h2>Installation Steps</h2>
+        <ol>
+            <li>Go to <a href=" https://github.com/hydradatabase/hydra"> Github Hydra</a> </li>
+            <li>Clone the project under "Quick Start" with command -> <b>git clone https://github.com/hydradatabase/hydra && cd hydra</b> </li>
+            <li>Edit the docker-compose.yml file, and add version in the beginning of the file based on the installation version. For eg - <b>version:"2.2"
+                for more information on <a href="https://docs.docker.com/compose/gettingstarted/"> How to write docker compose files</a> 
+            </b> </li>
+            <li>Execute rest of the commands</b> </li>
+            <li>At this point you should have "Hydra" container up, running and connected! Hurray!!!</b> </li>
+        </ol>
+        <h2>Create Database & Table using Command line</h2>
+        <p>Run the below Postgres queries in sequence but before that make sure to be connected with hydra database. Using the command <b>psql postgres://postgres:hydra@127.0.0.1:5484        </b> </p>
+        <ol>
+            <li> CREATE DATABASE mydatabase;            </li>
+            <li> \c mydatabase;            </li>
+            <li> CREATE TABLE mytable (
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(50),
+                age INTEGER,
+                email VARCHAR(100)
+            );            </li>
+            <li> INSERT INTO mytable (name, age, email) VALUES
+                ('John Smith', 35, 'john.smith@example.com'),
+                ('Jane Doe', 28, 'jane.doe@example.com'),
+                ('Bob Johnson', 42, 'bob.johnson@example.com'),
+                ('Emily Davis', 21, 'emily.davis@example.com'),
+                ('Mike Wilson', 39, 'mike.wilson@example.com');
+                       </li>
+            <li> SELECT * FROM mytable;
+                    </li>
+            <p>At this point you are expert enough to execute any "SQL CRUD operations" on Hydra. Still feel rusty!?!? then go to <a href="https://www.geeksforgeeks.org/sql-server-crud-operations/"> CRUD Commands Tutorials</a></p>
+        </ol>
+        <h2>Connecting Hydra with Java Application</h2>
+        <h3>Prequisites</h3>
+            <ol>
+                <li> Download Postgres Jdbc from- <a href="https://jdbc.postgresql.org/download/postgresql-42.6.0.jar"> Link</a> Note: there are other versions available as well pick what works best for you from <a href="https://jdbc.postgresql.org/download/"> Link</a></li>
+                    <li>Install JDK and setup environment variables of any version by following this tutorial <a href="https://phoenixnap.com/kb/install-java-windows"> Link</a></li>
+                    <li>Donwload an IDE of your choice. Recommended Eclipse - <a href="https://www.eclipse.org/downloads/"> Link</a></li>
+            </ol>
+            <h3>Demo Project build with Eclipse</h3>
+            <ol>
+                <li> Download the Eclipse poject from -> </li>
+                <li> Import the project in Eclipse</li>
+                    <li>Make sure to change the file connection in "JdbcHydraConn.java" in the project and go through the commented "Note section"</a></li>
+                    <li>Run the java file to execute some basic CRUD commands</li>
+                    <li>You are Finished with this tutorial!!</li>
+            </ol>
     </body>
 </html>
